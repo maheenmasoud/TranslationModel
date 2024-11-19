@@ -1,1 +1,0 @@
-French-English Translation Model
