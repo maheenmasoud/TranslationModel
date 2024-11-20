@@ -1,0 +1,15 @@
+{"time":"2024-11-20T18:48:05.0449058-05:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-20T18:48:05.0449058-05:00","level":"INFO","msg":"created symlink","path":"wandb\\offline-run-20241120_184804-idbzkizm\\logs\\debug-core.log"}
+{"time":"2024-11-20T18:48:05.3097655-05:00","level":"INFO","msg":"created new stream","id":"idbzkizm"}
+{"time":"2024-11-20T18:48:05.3097655-05:00","level":"INFO","msg":"stream: started","id":"idbzkizm"}
+{"time":"2024-11-20T18:48:05.3097655-05:00","level":"INFO","msg":"handler: started","stream_id":"idbzkizm"}
+{"time":"2024-11-20T18:48:05.3097655-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"idbzkizm"}
+{"time":"2024-11-20T18:48:05.3097655-05:00","level":"INFO","msg":"sender: started","stream_id":"idbzkizm"}
+{"time":"2024-11-20T18:48:05.3201234-05:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-20T18:48:05.5934854-05:00","level":"INFO","msg":"stream: closing","id":"idbzkizm"}
+{"time":"2024-11-20T18:48:05.5934854-05:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-20T18:48:05.594169-05:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-20T18:48:05.594169-05:00","level":"INFO","msg":"handler: closed","stream_id":"idbzkizm"}
+{"time":"2024-11-20T18:48:05.594169-05:00","level":"INFO","msg":"sender: closed","stream_id":"idbzkizm"}
+{"time":"2024-11-20T18:48:05.594169-05:00","level":"INFO","msg":"writer: Close: closed","stream_id":"idbzkizm"}
+{"time":"2024-11-20T18:48:05.5958898-05:00","level":"INFO","msg":"stream: closed","id":"idbzkizm"}
