@@ -40,5 +40,5 @@ train_loader = DataLoader(dataset, batch_size=32)
 model_1 = Transformer(d_model=512, n_heads=8, d_ff=2048)
 model = TransformerModel(model_1, learning_rate=0.0001)
 
-trainer = L.Trainer()
+trainer = pl.Trainer()
 trainer.fit(model=model, train_dataloaders=train_loader)
