@@ -21,6 +21,7 @@ class PositionalEncoder(nn.Module):
 
     def forward(self, x):
         return x + self.positional_matrix[:, :x.size(1)]
+    
 
 #encoder architecture
 class TransformerEncoder(nn.Module):
@@ -42,9 +43,9 @@ class TransformerEncoder(nn.Module):
         #dropout layer
         self.dropout = nn.Dropout(dropout)
 
-    def forward(self, src, src_mask=None):
+    def forward(self, src, padding_mask=None):
         # multihead attention
-        attn_output, _ = self.attention(src, src, src, key_padding_mask=src_mask)
+        attn_output, _ = self.attention(src, src, src, key_padding_mask=padding_mask)
         #add and normalize
         src = self.layer_norm1(src + attn_output)
         # feed forward
@@ -77,14 +78,14 @@ class TransformerDecoder(nn.Module):
         #dropout layer
         self.dropout = nn.Dropout(dropout)
 
-    def forward(self, trg, src, trg_mask=None, src_mask=None):
+    def forward(self, trg, src, trg_mask=None, padding_mask=None):
         # multihead attention with mask
         attn_output, _ = self.attention(trg, trg, trg, key_padding_mask=trg_mask)
         # add and normalize
         trg = self.layer_norm1(trg + attn_output)
 
         # multihead attention with encoder
-        attn_output, _ = self.encoder_decoder_attention(trg, src, src, key_padding_mask=src_mask)
+        attn_output, _ = self.encoder_decoder_attention(trg, src, src, key_padding_mask=padding_mask)
         #add and normalize
         trg = self.layer_norm2(trg + self.dropout(attn_output))
 
@@ -121,20 +122,20 @@ class Transformer(nn.Module):
         self.target_embedding = nn.Embedding(target_vocab_size, d_model)
     
     #src are input tokens for source sequence, trg input tokens for target sequence
-    def forward(self, src, trg, src_mask=None, trg_mask=None):
+    def forward(self, src, trg, src_padding_mask=None, trg_padding_mask=None, trg_mask=None):
         # source embedding and then scale by embedding dimension
         src = self.source_embedding(src) * math.sqrt(self.source_embedding.embedding_dim)
         #postional encoding
         src = self.pos_encoder(src)
         #encoder
-        src = self.encoder(src, src_mask)
+        src = self.encoder(src, src_padding_mask)
 
         # target embedding and then scale by embedding dimension
         trg = self.target_embedding(trg) * math.sqrt(self.target_embedding.embedding_dim)
         #positional encoding
         trg = self.pos_encoder(trg)
         #decoder
-        trg = self.decoder(trg, src, trg_mask, src_mask)
+        trg = self.decoder(trg, src, trg_mask, trg_padding_mask)
 
         # Final projection to vocab size
         output = self.softmax(self.output(trg))
