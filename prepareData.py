@@ -30,7 +30,7 @@ def load_data(file_path, separator='\t'):
 def train_bpe_tokenizer(sentences, model_name, vocab_size=8000):
     tokenizer = Tokenizer(models.BPE())
     tokenizer.pre_tokenizer = pre_tokenizers.Whitespace()
-    trainer = trainers.BpeTrainer(vocab_size=vocab_size, special_tokens=["<pad>", "<s>", "</s>", "<unk>", "<mask>"])
+    trainer = trainers.BpeTrainer(vocab_size=vocab_size, special_tokens=["<sos>", "<eos>", "<pad>", "<s>", "</s>", "<unk>", "<mask>"])
     tokenizer.train_from_iterator(sentences, trainer=trainer)
     tokenizer.save(f"{model_name}_tokenizer.json")
     print(f"Trained and saved {model_name} tokenizer.")
@@ -104,15 +104,20 @@ class TranslationDataset(Dataset):
 
 
 def collate_fn(batch):
-    src_batch = [item['src'] for item in batch]
-    trg_batch = [item['trg'] for item in batch]
+    src_batch = [torch.tensor(item['src'], dtype=torch.long) for item in batch]
+    trg_batch = [torch.tensor([0] + item['trg'] + [1], dtype=torch.long) for item in batch]  # Add <sos>=0, <eos>=1
     
-    src_padded = pad_sequence(src_batch, padding_value=0, batch_first=True)
-    trg_padded = pad_sequence(trg_batch, padding_value=0, batch_first=True)
+    src_padded = pad_sequence(src_batch, padding_value=2, batch_first=True)  # Padding <pad>=2
+    trg_padded = pad_sequence(trg_batch, padding_value=2, batch_first=True)
+    
+    src_mask = (src_padded != 0).long()  # Attention mask for source
+    trg_mask = (trg_padded != 0).long()  # Attention mask for target
     
     return {
         'src': src_padded,
-        'trg': trg_padded
+        'trg': trg_padded,
+        'src_mask': src_mask,
+        'trg_mask': trg_mask
     }
 
 
