@@ -3,7 +3,7 @@ import json
 import torch
 from torch.utils.data import Dataset, DataLoader
 from tokenizers import Tokenizer, models, trainers, pre_tokenizers
-from sklearn.model_selection import train_test_split
+import random
 from torch.nn.utils.rnn import pad_sequence
 
 # Step 1: Load and Separate Data
@@ -52,24 +52,38 @@ def encode_sentences(sentences, tokenizer):
 
 
 # Step 5: Split Dataset
-def split_dataset(encoded_eng, encoded_fre):
-    train_val_eng, test_eng, train_val_fre, test_fre = train_test_split(
-        encoded_eng,
-        encoded_fre,
-        test_size=0.1,
-        random_state=42
-    )
-    val_size_adjusted = 0.1 / 0.9
-    train_eng, val_eng, train_fre, val_fre = train_test_split(
-        train_val_eng,
-        train_val_fre,
-        test_size=val_size_adjusted,
-        random_state=42
-    )
+def split_dataset(encoded_eng, encoded_fre, test_ratio=0.1, val_ratio=0.1):
+    # Ensure input lists are the same length
+    assert len(encoded_eng) == len(encoded_fre), "Source and target sentences must be the same length."
+    
+    # Calculate dataset sizes
+    total_size = len(encoded_eng)
+    test_size = int(total_size * test_ratio)
+    val_size = int(total_size * val_ratio)
+    train_size = total_size - test_size - val_size
+    
+    # Create indices
+    indices = list(range(total_size))
+    random.shuffle(indices)
+    
+    train_indices = indices[:train_size]
+    val_indices = indices[train_size:train_size + val_size]
+    test_indices = indices[train_size + val_size:]
+    
+    # Split datasets based on indices
+    train_eng = [encoded_eng[i] for i in train_indices]
+    train_fre = [encoded_fre[i] for i in train_indices]
+    val_eng = [encoded_eng[i] for i in val_indices]
+    val_fre = [encoded_fre[i] for i in val_indices]
+    test_eng = [encoded_eng[i] for i in test_indices]
+    test_fre = [encoded_fre[i] for i in test_indices]
+    
     print(f"Training set size: {len(train_eng)}")
     print(f"Validation set size: {len(val_eng)}")
     print(f"Test set size: {len(test_eng)}")
+    
     return train_eng, val_eng, test_eng, train_fre, val_fre, test_fre
+
 
 # Step 6: Create Dataset and DataLoader
 class TranslationDataset(Dataset):
