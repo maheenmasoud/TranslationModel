@@ -48,6 +48,7 @@ class TransformerModel(pl.LightningModule):
         output = self.model(src, trg)
         output = output.view(-1, output.size(-1))
         loss = self.loss(output, trg)
+<<<<<<< HEAD
         self.log('val_loss', loss)
         #convert predicted and trg to list of vectors, with each vector being a sentence
         predicted = output.argmax(dim=-1)
@@ -69,3 +70,6 @@ class TransformerModel(pl.LightningModule):
         return sum(bleu_scores) / len(bleu_scores)  # Average BLEU score
 
 
+=======
+        return loss
+>>>>>>> 2daff52120948a16d89f2ce8cfff6c0a69a41dc3
