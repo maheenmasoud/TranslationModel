@@ -45,7 +45,6 @@ def main():
     logger = WandbLogger(project='English_to_French_Translation', log_model=True)
 
     trainer = pl.Trainer(max_epochs=10, logger=logger, accelerator="auto", devices=1, callbacks=pl.callbacks.ModelCheckpoint(monitor="val_loss", save_top_k=1))
-    trainer = pl.Trainer(max_epochs=10, accelerator="auto", devices=1, callbacks=pl.callbacks.ModelCheckpoint(monitor="val_loss", save_top_k=1))
     trainer.fit(model=model, train_dataloaders=train_loader, val_dataloaders=val_loader)
     trainer.test(test_dataloaders=test_loader)
 

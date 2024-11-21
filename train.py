@@ -5,6 +5,7 @@ import torch
 import torch.nn as nn
 from pytorch_lightning.loggers.wandb import WandbLogger
 from nltk.translate.bleu_score import sentence_bleu
+from prepare_data import create_dataloaders, load_data, train_bpe_tokenizer, encode_sentences, split_dataset
 
 #create a padding mask for the sequence
 def create_padding_mask(seq, pad_token=0):
@@ -29,26 +30,30 @@ class TransformerModel(pl.LightningModule):
         trg_padding_mask = create_padding_mask(trg, pad_token=self.pad_token)
         trg_target_mask = create_target_mask(trg.size(1))
         #run the transformer model with the data
+        self.validation_step((src,trg))
         return self.model(src, trg, trg_mask=trg_target_mask, src_padding_mask=src_padding_mask, trg_padding_mask=trg_padding_mask)
     
     def configure_optimizers(self):
         optimizer = torch.optim.AdamW(self.model.parameters(), lr=self.learning_rate)
         return optimizer
     
-    def training_step(self, batch, batch_idx):
-        src, trg = batch
+    def training_step(self, batch):
+        src = batch['src']
+        trg = batch['trg'] 
+
         output = self.model(src, trg)
         output = output.view(-1, output.size(-1))
         loss = self.loss(output, trg)
         self.log('train_loss', loss)
         return loss
 
-    def validation_step(self, batch, batch_idx):
-        src, trg = batch
+    def validation_step(self, batch):
+        src = batch['src']
+        trg = batch['trg'] 
+
         output = self.model(src, trg)
         output = output.view(-1, output.size(-1))
         loss = self.loss(output, trg)
-<<<<<<< HEAD
         self.log('val_loss', loss)
         #convert predicted and trg to list of vectors, with each vector being a sentence
         predicted = output.argmax(dim=-1)
@@ -69,7 +74,45 @@ class TransformerModel(pl.LightningModule):
             bleu_scores.append(sentence_bleu([t], p))
         return sum(bleu_scores) / len(bleu_scores)  # Average BLEU score
 
+# def make_data_loaders():
 
-=======
-        return loss
->>>>>>> 2daff52120948a16d89f2ce8cfff6c0a69a41dc3
+#     data_file = 'data.txt'
+#     separator = '\t'
+#     vocab_size = 8000
+#     batch_size = 32
+
+#     english_sentences, french_sentences = load_data(data_file, separator)
+
+#     eng_tokenizer = train_bpe_tokenizer(english_sentences, "english", vocab_size=vocab_size)
+#     fre_tokenizer = train_bpe_tokenizer(french_sentences, "french", vocab_size=vocab_size)
+    
+#     encoded_english = encode_sentences(english_sentences, eng_tokenizer)
+#     encoded_french = encode_sentences(french_sentences, fre_tokenizer)
+
+#     train_eng, val_eng, test_eng, train_fre, val_fre, test_fre = split_dataset(encoded_english, encoded_french)
+
+#     train_loader, val_loader, test_loader = create_dataloaders(
+#         train_eng, val_eng, test_eng, train_fre, val_fre, test_fre, batch_size=batch_size
+#     )
+
+#     print("DataLoaders created successfully.")
+#     return train_loader, val_loader, test_loader
+
+# train_loader, val_loader, test_loader = make_data_loaders()
+# source_vocab_size = 1000
+# target_vocab_size = 1000
+# model = Transformer(
+#         d_model=512,
+#         nhead=8,
+#         source_vocab_size=source_vocab_size,
+#         target_vocab_size=target_vocab_size,
+#     )
+
+# for batch_idx, batch in enumerate(train_loader):
+#     # Process the batch
+#     test = batch
+#     # Break after processing the first batch
+#     break
+# src, trg = batch
+# print(src)
+# # model(train_loader)

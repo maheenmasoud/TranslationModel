@@ -1,0 +1,15 @@
+{"time":"2024-11-20T21:22:00.5929376-05:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-20T21:22:00.5929376-05:00","level":"INFO","msg":"created symlink","path":"wandb\\offline-run-20241120_212200-luv02i5i\\logs\\debug-core.log"}
+{"time":"2024-11-20T21:22:00.8181776-05:00","level":"INFO","msg":"created new stream","id":"luv02i5i"}
+{"time":"2024-11-20T21:22:00.8181776-05:00","level":"INFO","msg":"stream: started","id":"luv02i5i"}
+{"time":"2024-11-20T21:22:00.8181776-05:00","level":"INFO","msg":"sender: started","stream_id":"luv02i5i"}
+{"time":"2024-11-20T21:22:00.8181776-05:00","level":"INFO","msg":"handler: started","stream_id":"luv02i5i"}
+{"time":"2024-11-20T21:22:00.8181776-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"luv02i5i"}
+{"time":"2024-11-20T21:22:00.8300471-05:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-20T21:22:00.9789661-05:00","level":"INFO","msg":"stream: closing","id":"luv02i5i"}
+{"time":"2024-11-20T21:22:00.9789661-05:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-20T21:22:00.9945511-05:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-20T21:22:00.9945511-05:00","level":"INFO","msg":"handler: closed","stream_id":"luv02i5i"}
+{"time":"2024-11-20T21:22:00.9945511-05:00","level":"INFO","msg":"writer: Close: closed","stream_id":"luv02i5i"}
+{"time":"2024-11-20T21:22:00.9945511-05:00","level":"INFO","msg":"sender: closed","stream_id":"luv02i5i"}
+{"time":"2024-11-20T21:22:00.9964017-05:00","level":"INFO","msg":"stream: closed","id":"luv02i5i"}

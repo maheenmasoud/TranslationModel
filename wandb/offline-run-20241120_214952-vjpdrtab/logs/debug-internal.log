@@ -1,0 +1,15 @@
+{"time":"2024-11-20T21:49:52.6295206-05:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-20T21:49:52.6295206-05:00","level":"INFO","msg":"created symlink","path":"wandb\\offline-run-20241120_214952-vjpdrtab\\logs\\debug-core.log"}
+{"time":"2024-11-20T21:49:52.7790835-05:00","level":"INFO","msg":"created new stream","id":"vjpdrtab"}
+{"time":"2024-11-20T21:49:52.7791138-05:00","level":"INFO","msg":"stream: started","id":"vjpdrtab"}
+{"time":"2024-11-20T21:49:52.7796478-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"vjpdrtab"}
+{"time":"2024-11-20T21:49:52.7796478-05:00","level":"INFO","msg":"handler: started","stream_id":"vjpdrtab"}
+{"time":"2024-11-20T21:49:52.7796478-05:00","level":"INFO","msg":"sender: started","stream_id":"vjpdrtab"}
+{"time":"2024-11-20T21:49:52.8028778-05:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-20T21:49:53.0496713-05:00","level":"INFO","msg":"stream: closing","id":"vjpdrtab"}
+{"time":"2024-11-20T21:49:53.050198-05:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-20T21:49:53.0518099-05:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-20T21:49:53.0536665-05:00","level":"INFO","msg":"handler: closed","stream_id":"vjpdrtab"}
+{"time":"2024-11-20T21:49:53.0536665-05:00","level":"INFO","msg":"sender: closed","stream_id":"vjpdrtab"}
+{"time":"2024-11-20T21:49:53.0536665-05:00","level":"INFO","msg":"writer: Close: closed","stream_id":"vjpdrtab"}
+{"time":"2024-11-20T21:49:53.0553059-05:00","level":"INFO","msg":"stream: closed","id":"vjpdrtab"}

@@ -1,0 +1,42 @@
+{
+  "os":  "Windows-10-10.0.19045-SP0",
+  "python":  "3.11.9",
+  "startedAt":  "2024-11-21T03:04:36.351376Z",
+  "program":  "C:\\Users\\ianfr\\Dropbox\\PC\\Documents\\CS_307\\TranslationModel\\run_model.py",
+  "codePath":  "run_model.py",
+  "git":  {
+    "remote":  "https://github.com/maheenmasoud/TranslationModel.git",
+    "commit":  "0fb796a14abc39b938274b4f70ec7c1d900f472e"
+  },
+  "root":  ".",
+  "host":  "DESKTOP-3KPSK6N",
+  "username":  "ianfr",
+  "executable":  "C:\\Users\\ianfr\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\python.exe",
+  "codePathLocal":  "run_model.py",
+  "cpu_count":  8,
+  "cpu_count_logical":  16,
+  "gpu":  "NVIDIA GeForce RTX 3060 Laptop GPU",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "489796136960",
+      "used":  "433655922688"
+    }
+  },
+  "memory":  {
+    "total":  "16483872768"
+  },
+  "cpu":  {
+    "count":  8,
+    "countLogical":  16
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "memoryTotal":  "6442450944",
+      "cudaCores":  3840,
+      "architecture":  "Ampere"
+    }
+  ],
+  "cudaVersion":  "12.5"
+}

@@ -1,0 +1,16 @@
+{
+  "os":  "Windows-10-10.0.19045-SP0",
+  "python":  "3.11.9",
+  "startedAt":  "2024-11-21T02:25:00.329121Z",
+  "program":  "C:\\Users\\ianfr\\Dropbox\\PC\\Documents\\CS_307\\TranslationModel\\run_model.py",
+  "codePath":  "run_model.py",
+  "git":  {
+    "remote":  "https://github.com/maheenmasoud/TranslationModel.git",
+    "commit":  "0fb796a14abc39b938274b4f70ec7c1d900f472e"
+  },
+  "root":  ".",
+  "host":  "DESKTOP-3KPSK6N",
+  "username":  "ianfr",
+  "executable":  "C:\\Users\\ianfr\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\python.exe",
+  "codePathLocal":  "run_model.py"
+}

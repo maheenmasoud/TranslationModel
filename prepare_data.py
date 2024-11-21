@@ -105,8 +105,7 @@ class TranslationDataset(Dataset):
 
 def collate_fn(batch):
     src_batch = [torch.tensor(item['src'], dtype=torch.long) for item in batch]
-    trg_batch = [torch.tensor([0] + item['trg'] + [1], dtype=torch.long) for item in batch]  # Add <sos>=0, <eos>=1
-    
+    trg_batch = [torch.tensor(torch.cat((torch.tensor([0]), item['trg'], torch.tensor([1])), dim=0), dtype=torch.long) for item in batch]  # Add <sos>=0, <eos>=1
     src_padded = pad_sequence(src_batch, padding_value=2, batch_first=True)  # Padding <pad>=2
     trg_padded = pad_sequence(trg_batch, padding_value=2, batch_first=True)
     
@@ -129,7 +128,8 @@ def create_dataloaders(train_eng, val_eng, test_eng, train_fre, val_fre, test_fr
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, collate_fn=collate_fn)
     val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, collate_fn=collate_fn)
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, collate_fn=collate_fn)
-    
+
+        
     print("DataLoaders created successfully.")
     return train_loader, val_loader, test_loader
 

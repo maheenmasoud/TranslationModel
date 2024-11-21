@@ -1,0 +1,15 @@
+{"time":"2024-11-20T21:24:15.656654-05:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-20T21:24:15.656654-05:00","level":"INFO","msg":"created symlink","path":"wandb\\offline-run-20241120_212415-rm8xprmu\\logs\\debug-core.log"}
+{"time":"2024-11-20T21:24:15.7808348-05:00","level":"INFO","msg":"created new stream","id":"rm8xprmu"}
+{"time":"2024-11-20T21:24:15.7808348-05:00","level":"INFO","msg":"stream: started","id":"rm8xprmu"}
+{"time":"2024-11-20T21:24:15.7808348-05:00","level":"INFO","msg":"handler: started","stream_id":"rm8xprmu"}
+{"time":"2024-11-20T21:24:15.7808348-05:00","level":"INFO","msg":"sender: started","stream_id":"rm8xprmu"}
+{"time":"2024-11-20T21:24:15.7808348-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"rm8xprmu"}
+{"time":"2024-11-20T21:24:15.7919671-05:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-20T21:24:15.9316207-05:00","level":"INFO","msg":"stream: closing","id":"rm8xprmu"}
+{"time":"2024-11-20T21:24:15.9316207-05:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-20T21:24:15.9337494-05:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-20T21:24:15.9342708-05:00","level":"INFO","msg":"handler: closed","stream_id":"rm8xprmu"}
+{"time":"2024-11-20T21:24:15.9342708-05:00","level":"INFO","msg":"writer: Close: closed","stream_id":"rm8xprmu"}
+{"time":"2024-11-20T21:24:15.9342708-05:00","level":"INFO","msg":"sender: closed","stream_id":"rm8xprmu"}
+{"time":"2024-11-20T21:24:15.9354863-05:00","level":"INFO","msg":"stream: closed","id":"rm8xprmu"}
