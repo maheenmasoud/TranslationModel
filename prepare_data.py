@@ -27,7 +27,7 @@ def load_data(file_path, separator='\t'):
 
 # Step 2: Train BPE Tokenizers
 # CITATION: https://pypi.org/project/tokenizers/
-def train_bpe_tokenizer(sentences, model_name, vocab_size=8000):
+def train_bpe_tokenizer(sentences, model_name, vocab_size=1000):
     tokenizer = Tokenizer(models.BPE())
     tokenizer.pre_tokenizer = pre_tokenizers.Whitespace()
     trainer = trainers.BpeTrainer(vocab_size=vocab_size, special_tokens=["<sos>", "<eos>", "<pad>", "<s>", "</s>", "<unk>", "<mask>"])
@@ -102,21 +102,32 @@ class TranslationDataset(Dataset):
             'trg': torch.tensor(self.trg_sentences[idx], dtype=torch.long)
         }
 
-
+def get_tgt_mask(size):
+    # Generates a squeare matrix where the each row allows one word more to be seen
+    mask = torch.tril(torch.ones(size, size) == 1) # Lower triangular matrix
+    mask = mask.float()
+    mask = mask.masked_fill(mask == 0, float('-inf')) # Convert zeros to -inf
+    mask = mask.masked_fill(mask == 1, float(0.0)) # Convert ones to 0
+    
+    return mask
+    
+        
 def collate_fn(batch):
     src_batch = [torch.tensor(item['src'], dtype=torch.long) for item in batch]
     trg_batch = [torch.tensor(torch.cat((torch.tensor([0]), item['trg'], torch.tensor([1])), dim=0), dtype=torch.long) for item in batch]  # Add <sos>=0, <eos>=1
     src_padded = pad_sequence(src_batch, padding_value=2, batch_first=True)  # Padding <pad>=2
     trg_padded = pad_sequence(trg_batch, padding_value=2, batch_first=True)
     
-    src_mask = (src_padded != 0).long()  # Attention mask for source
-    trg_mask = (trg_padded != 0).long()  # Attention mask for target
-    
+    src_padding_mask = (src_padded == 2).bool()  # Attention mask for source
+    trg_padding_mask = (trg_padded == 2).bool()  # Attention mask for target
+
+    trg_mask = get_tgt_mask(trg_padded.size(1))
     return {
         'src': src_padded,
         'trg': trg_padded,
-        'src_mask': src_mask,
-        'trg_mask': trg_mask
+        'src_padding_mask': src_padding_mask,
+        'trg_padding_mask': trg_padding_mask,
+        "trg_mask" : trg_mask
     }
 
 

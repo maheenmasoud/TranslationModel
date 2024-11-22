@@ -78,14 +78,14 @@ class TransformerDecoder(nn.Module):
         #dropout layer
         self.dropout = nn.Dropout(dropout)
 
-    def forward(self, trg, src, trg_mask=None, padding_mask=None):
+    def forward(self, trg, src, src_padding_mask=None, trg_padding_mask=None, trg_mask=None):
         # multihead attention with mask
-        attn_output, _ = self.attention(trg, trg, trg, key_padding_mask=trg_mask)
+        attn_output, _ = self.attention(trg, trg, trg, key_padding_mask=trg_padding_mask, attn_mask=trg_mask)
         # add and normalize
         trg = self.layer_norm1(trg + attn_output)
 
         # multihead attention with encoder
-        attn_output, _ = self.encoder_decoder_attention(trg, src, src, key_padding_mask=padding_mask)
+        attn_output, _ = self.encoder_decoder_attention(trg, src, src, key_padding_mask=src_padding_mask)
         #add and normalize
         trg = self.layer_norm2(trg + self.dropout(attn_output))
 
@@ -127,6 +127,8 @@ class Transformer(nn.Module):
         src = self.source_embedding(src) * math.sqrt(self.source_embedding.embedding_dim)
         #postional encoding
         src = self.pos_encoder(src)
+
+        src = src.permute(1, 0, 2)
         #encoder
         src = self.encoder(src, src_padding_mask)
 
@@ -134,10 +136,11 @@ class Transformer(nn.Module):
         trg = self.target_embedding(trg) * math.sqrt(self.target_embedding.embedding_dim)
         #positional encoding
         trg = self.pos_encoder(trg)
+
+        trg = trg.permute(1, 0, 2)
         #decoder
-        trg = self.decoder(trg, src, trg_mask, trg_padding_mask)
+        trg = self.decoder(trg, src, src_padding_mask, trg_padding_mask, trg_mask)
 
         # Final projection to vocab size
         output = self.softmax(self.output(trg))
         return output
-    
