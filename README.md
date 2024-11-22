@@ -1,4 +1,4 @@
-To train the transformer model with the data, run the run_model.py file.
+To train the transformer model with the data and perform testing, run the run_model.py file.
 
 The prepare_data.py file contains the code to process our data 
 

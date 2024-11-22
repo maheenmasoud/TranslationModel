@@ -7,6 +7,7 @@ from pytorch_lightning.loggers.wandb import WandbLogger
 from nltk.translate.bleu_score import sentence_bleu
 from prepare_data import create_dataloaders, load_data, train_bpe_tokenizer, encode_sentences, split_dataset
 from torch.optim.lr_scheduler import StepLR
+from fairseq.sequence_generator import SequenceGenerator
 
 class TransformerModel(pl.LightningModule):
     def __init__(self, 
@@ -70,6 +71,57 @@ class TransformerModel(pl.LightningModule):
         bleu_score = self.calculate_bleu(predicted, trg)
         self.log('bleu_score', bleu_score) 
         return loss
+    
+    def test_step(self, batch):
+        src = batch['src']
+        trg = batch['trg'] 
+        src_padding_mask = batch['src_padding_mask']
+        trg_padding_mask = batch['trg_padding_mask']
+        trg_mask = batch['trg_mask']
+
+        output = self.model(src, trg, src_padding_mask, trg_padding_mask, trg_mask)
+        output = output.permute(1, 0, 2)
+
+        #flatten output and trg
+        loss = self.loss(output.reshape(-1, output.size(-1)), trg.reshape(-1))
+        self.log('test_loss', loss, batch_size=32, on_epoch=True, prog_bar=True)
+
+        #convert predicted and trg to list of vectors, with each vector being a sentence
+        predicted = output.argmax(dim=-1)
+
+        predicted = predicted.cpu().numpy().tolist()
+        trg = trg.cpu().numpy().tolist()
+
+        #calculate the bleu score and then log it
+        bleu_score = self.calculate_bleu(predicted, trg)
+        self.log('bleu_score_test', bleu_score) 
+        return loss
+    
+    #this could be right, not sure
+    def predict_step(self, batch):
+        src = batch['src']
+        src_padding_mask = batch['src_padding_mask']
+        
+        # Set up Fairseq's SequenceGenerator
+        generator = SequenceGenerator(
+            [self.model],
+            beam_size=self.beam_size,
+            max_len_b=self.max_len,
+            eos=self.eos_idx,
+            pad=self.pad_idx,
+        )
+
+        # Generate predictions
+        encoder_out = self.model.encoder(src, src_padding_mask)
+        outputs = generator.generate([encoder_out], src_tokens=src, src_lengths=src_padding_mask.sum(dim=1))
+        
+        # Decode beam search results
+        predictions = []
+        for output in outputs:
+            pred_tokens = output[0]['tokens']
+            predictions.append(pred_tokens.tolist())
+        
+        return predictions
     
     def calculate_bleu(self, predicted, target):
         bleu_scores = []
