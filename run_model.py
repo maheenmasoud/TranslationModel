@@ -46,7 +46,6 @@ def main():
 
     trainer = pl.Trainer(max_epochs=10, logger=logger, callbacks=pl.callbacks.ModelCheckpoint(monitor="val_loss", save_top_k=1), gradient_clip_val=1, precision=16)
     trainer.fit(model=model, train_dataloaders=train_loader, val_dataloaders=val_loader)
-    trainer.test(test_dataloaders=test_loader)
 
 if __name__ == '__main__':
     main()
