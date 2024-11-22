@@ -6,6 +6,7 @@ import torch.nn as nn
 from pytorch_lightning.loggers.wandb import WandbLogger
 from nltk.translate.bleu_score import sentence_bleu
 from prepare_data import create_dataloaders, load_data, train_bpe_tokenizer, encode_sentences, split_dataset
+from torch.optim.lr_scheduler import StepLR
 
 class TransformerModel(pl.LightningModule):
     def __init__(self, 
@@ -26,7 +27,11 @@ class TransformerModel(pl.LightningModule):
     
     def configure_optimizers(self):
         optimizer = torch.optim.AdamW(self.model.parameters(), lr=self.learning_rate)
-        return optimizer
+        scheduler = StepLR(optimizer, step_size=2, gamma=0.1)
+        return {"optimizer": optimizer, "lr_scheduler": {
+                "scheduler": scheduler,
+                "frequency": 1,
+            },}
     
     def training_step(self, batch):
         src = batch['src']
