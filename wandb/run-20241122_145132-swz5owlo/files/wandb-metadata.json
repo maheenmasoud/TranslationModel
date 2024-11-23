@@ -1,0 +1,39 @@
+{
+  "os":  "macOS-14.5-arm64-arm-64bit",
+  "python":  "3.9.6",
+  "startedAt":  "2024-11-22T19:51:32.554467Z",
+  "program":  "/Users/aabdelre/Desktop/School/DL/project3/TranslationModel/run_model.py",
+  "codePath":  "run_model.py",
+  "git":  {
+    "remote":  "https://github.com/maheenmasoud/TranslationModel.git",
+    "commit":  "0779719ba1aa6d1cb51c136af844847b261e1616"
+  },
+  "email":  "aabdelre@hamilton.edu",
+  "root":  ".",
+  "host":  "devspace.hamilton.edu",
+  "username":  "aabdelre",
+  "executable":  "/Users/aabdelre/Desktop/School/DL/project3/TranslationModel/.venv/bin/python",
+  "codePathLocal":  "run_model.py",
+  "cpu_count":  8,
+  "cpu_count_logical":  8,
+  "disk":  {
+    "/":  {
+      "total":  "494384795648",
+      "used":  "156464939008"
+    }
+  },
+  "memory":  {
+    "total":  "17179869184"
+  },
+  "cpu":  {
+    "count":  8,
+    "countLogical":  8
+  },
+  "apple":  {
+    "name":  "Apple M3",
+    "ecpuCores":  4,
+    "pcpuCores":  4,
+    "gpuCores":  10,
+    "memoryGb":  16
+  }
+}

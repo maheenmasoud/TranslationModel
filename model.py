@@ -103,11 +103,15 @@ class Transformer(nn.Module):
                  source_vocab_size: int,
                  target_vocab_size: int,
                  dim_feedforward: int = 512,
-                 dropout: float = 0.1):
+                 dropout: float = 0.1,
+                 device: str = 'cpu'):
         super(Transformer, self).__init__()
         
         #positional encoder layer
         self.pos_encoder = PositionalEncoder(d_model)
+
+        #set device
+        self.device = device
 
         # encoder and decoder layers
         self.encoder = TransformerEncoder(d_model, nhead, dim_feedforward, dropout)
@@ -144,3 +148,49 @@ class Transformer(nn.Module):
         # Final projection to vocab size
         output = self.softmax(self.output(trg))
         return output
+    
+    def generate(self, src, src_padding_mask, fre_tokenizer, max_len=50):
+        """
+        Generates translations for the given source sentences using greedy decoding.
+        
+        Args:
+            src (torch.Tensor): Source sentences tensor [batch_size, src_len].
+            src_padding_mask (torch.Tensor): Source padding mask [batch_size, src_len].
+            fre_tokenizer (spm.SentencePieceProcessor): French tokenizer.
+            max_len (int): Maximum length of the generated sentence.
+        
+        Returns:
+            list of lists: Generated token IDs for each sentence in the batch.
+        """
+        batch_size = src.size(0)
+        trg = torch.full((batch_size, 1), 0, dtype=torch.long).to(src.device)  # [batch_size, 1] <sos>:1 token
+
+        for _ in range(max_len):
+            trg_mask = self.create_trg_mask(trg.size(1)).to(src.device)  # [trg_len, trg_len]
+            
+            # Forward pass
+            output = self.forward(src, trg, src_padding_mask, 
+                                  trg_padding_mask=(trg == 2), 
+                                  trg_mask=trg_mask)  # [trg_len, batch_size, vocab_size]
+            
+            # Get the last token's probabilities
+            next_token_logits = output[-1, :, :]  # [batch_size, vocab_size]
+            # Greedy decoding: select the token with highest probability
+            next_tokens = torch.argmax(next_token_logits, dim=1).unsqueeze(1)  # [batch_size, 1]
+            
+            # Append the predicted tokens to the target sequence
+            trg = torch.cat((trg, next_tokens), dim=1)  # [batch_size, trg_len + 1]
+            
+            # Check if all sentences have generated <eos>
+            if (next_tokens == 1).all(): # 1 is the <eos> token
+                break
+
+        return trg.tolist()  # List of lists containing token IDs
+    
+    def create_trg_mask(self, size):
+        """
+        Generates a square subsequent mask for the target sequence.
+        """
+        mask = torch.tril(torch.ones((size, size), device=self.device) == 1)
+        mask = mask.float().masked_fill(mask == 0, float('-inf')).masked_fill(mask == 1, float(0.0))
+        return mask

@@ -1,0 +1,16 @@
+{"time":"2024-11-21T19:29:49.47566-05:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-21T19:29:49.47663-05:00","level":"INFO","msg":"created symlink","path":"wandb/run-20241121_192949-sds5rn1p/logs/debug-core.log"}
+{"time":"2024-11-21T19:29:49.587006-05:00","level":"INFO","msg":"created new stream","id":"sds5rn1p"}
+{"time":"2024-11-21T19:29:49.587048-05:00","level":"INFO","msg":"stream: started","id":"sds5rn1p"}
+{"time":"2024-11-21T19:29:49.587059-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"sds5rn1p"}
+{"time":"2024-11-21T19:29:49.587065-05:00","level":"INFO","msg":"sender: started","stream_id":"sds5rn1p"}
+{"time":"2024-11-21T19:29:49.58711-05:00","level":"INFO","msg":"handler: started","stream_id":"sds5rn1p"}
+{"time":"2024-11-21T19:29:49.885793-05:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-21T19:43:41.945864-05:00","level":"INFO","msg":"stream: closing","id":"sds5rn1p"}
+{"time":"2024-11-21T19:43:41.946102-05:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-21T19:43:41.946936-05:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-21T19:43:43.277762-05:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-21T19:43:43.769663-05:00","level":"INFO","msg":"handler: closed","stream_id":"sds5rn1p"}
+{"time":"2024-11-21T19:43:43.769673-05:00","level":"INFO","msg":"writer: Close: closed","stream_id":"sds5rn1p"}
+{"time":"2024-11-21T19:43:43.769746-05:00","level":"INFO","msg":"sender: closed","stream_id":"sds5rn1p"}
+{"time":"2024-11-21T19:43:43.769773-05:00","level":"INFO","msg":"stream: closed","id":"sds5rn1p"}

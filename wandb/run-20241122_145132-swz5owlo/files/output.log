@@ -1,0 +1,24 @@
+
+  | Name  | Type             | Params | Mode
+---------------------------------------------------
+0 | model | Transformer      | 16.5 M | train
+1 | loss  | CrossEntropyLoss | 0      | train
+---------------------------------------------------
+16.5 M    Trainable params
+0         Non-trainable params
+16.5 M    Total params
+66.014    Total estimated model params size (MB)
+30        Modules in train mode
+0         Modules in eval mode
+Epoch 0:   6%|██████                                                                                         | 268/4179 [03:07<45:40,  1.43it/s, v_num=owlo]
+/Users/aabdelre/Desktop/School/DL/project3/TranslationModel/.venv/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:424: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=7` in the `DataLoader` to improve performance.
+/Users/aabdelre/Desktop/School/DL/project3/TranslationModel/old_prepare_data.py:116: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  src_batch = [torch.tensor(item['src'], dtype=torch.long) for item in batch]
+/Users/aabdelre/Desktop/School/DL/project3/TranslationModel/old_prepare_data.py:117: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  trg_batch = [torch.tensor(torch.cat((torch.tensor([0]), item['trg'], torch.tensor([1])), dim=0), dtype=torch.long) for item in batch]  # Add <sos>=0, <eos>=1
+/Users/aabdelre/Desktop/School/DL/project3/TranslationModel/.venv/lib/python3.9/site-packages/torch/nn/functional.py:5849: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+/Users/aabdelre/Desktop/School/DL/project3/TranslationModel/.venv/lib/python3.9/site-packages/pytorch_lightning/utilities/data.py:78: Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 32. To avoid any miscalculations, use `self.log(..., batch_size=batch_size)`.
+/Users/aabdelre/Desktop/School/DL/project3/TranslationModel/.venv/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:424: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=7` in the `DataLoader` to improve performance.
+
+Detected KeyboardInterrupt, attempting graceful shutdown ...

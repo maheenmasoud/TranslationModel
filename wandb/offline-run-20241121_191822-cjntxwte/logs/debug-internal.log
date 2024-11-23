@@ -1,0 +1,15 @@
+{"time":"2024-11-21T19:18:22.251007-05:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-21T19:18:22.251063-05:00","level":"INFO","msg":"created symlink","path":"wandb/offline-run-20241121_191822-cjntxwte/logs/debug-core.log"}
+{"time":"2024-11-21T19:18:22.561455-05:00","level":"INFO","msg":"created new stream","id":"cjntxwte"}
+{"time":"2024-11-21T19:18:22.561501-05:00","level":"INFO","msg":"stream: started","id":"cjntxwte"}
+{"time":"2024-11-21T19:18:22.561572-05:00","level":"INFO","msg":"sender: started","stream_id":"cjntxwte"}
+{"time":"2024-11-21T19:18:22.561621-05:00","level":"INFO","msg":"handler: started","stream_id":"cjntxwte"}
+{"time":"2024-11-21T19:18:22.561572-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"cjntxwte"}
+{"time":"2024-11-21T19:18:22.565094-05:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-21T19:28:59.790646-05:00","level":"INFO","msg":"stream: closing","id":"cjntxwte"}
+{"time":"2024-11-21T19:28:59.790858-05:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-21T19:28:59.791304-05:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-21T19:28:59.791741-05:00","level":"INFO","msg":"handler: closed","stream_id":"cjntxwte"}
+{"time":"2024-11-21T19:28:59.791756-05:00","level":"INFO","msg":"writer: Close: closed","stream_id":"cjntxwte"}
+{"time":"2024-11-21T19:28:59.79176-05:00","level":"INFO","msg":"sender: closed","stream_id":"cjntxwte"}
+{"time":"2024-11-21T19:28:59.791817-05:00","level":"INFO","msg":"stream: closed","id":"cjntxwte"}

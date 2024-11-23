@@ -1,4 +1,4 @@
-from prepare_data import create_dataloaders, load_data, train_bpe_tokenizer, encode_sentences, split_dataset
+from old_prepare_data import create_dataloaders, load_data, train_bpe_tokenizer, encode_sentences, split_dataset
 from model import Transformer
 import pytorch_lightning as pl
 from train import TransformerModel

@@ -1,0 +1,34 @@
+{"time":"2024-11-22T14:56:52.045847-05:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-22T14:56:52.045903-05:00","level":"INFO","msg":"created symlink","path":"wandb/run-20241122_145652-ckgg7019/logs/debug-core.log"}
+{"time":"2024-11-22T14:56:52.155816-05:00","level":"INFO","msg":"created new stream","id":"ckgg7019"}
+{"time":"2024-11-22T14:56:52.15585-05:00","level":"INFO","msg":"stream: started","id":"ckgg7019"}
+{"time":"2024-11-22T14:56:52.155856-05:00","level":"INFO","msg":"handler: started","stream_id":"ckgg7019"}
+{"time":"2024-11-22T14:56:52.155875-05:00","level":"INFO","msg":"sender: started","stream_id":"ckgg7019"}
+{"time":"2024-11-22T14:56:52.155929-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"ckgg7019"}
+{"time":"2024-11-22T14:56:52.406886-05:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-22T16:18:12.740923-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/aabdelre-hamilton-college/English_to_French_Translation/ckgg7019/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2024-11-22T16:18:15.399985-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/aabdelre-hamilton-college/English_to_French_Translation/ckgg7019/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2024-11-22T16:18:19.615908-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 150.209.49.143:54939->35.186.228.49:443: read: connection reset by peer"}
+{"time":"2024-11-22T16:18:20.302371-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/aabdelre-hamilton-college/English_to_French_Translation/ckgg7019/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2024-11-22T16:18:21.773355-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2024-11-22T16:37:36.48297-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/aabdelre-hamilton-college/English_to_French_Translation/ckgg7019/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2024-11-22T16:38:17.147214-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/aabdelre-hamilton-college/English_to_French_Translation/ckgg7019/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2024-11-22T16:38:19.502567-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/aabdelre-hamilton-college/English_to_French_Translation/ckgg7019/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2024-11-22T16:38:24.200285-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/aabdelre-hamilton-college/English_to_French_Translation/ckgg7019/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2024-11-22T17:05:48.341466-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/aabdelre-hamilton-college/English_to_French_Translation/ckgg7019/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2024-11-22T17:10:03.256499-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 150.209.49.143:56760->35.186.228.49:443: read: can't assign requested address"}
+{"time":"2024-11-22T17:10:05.571684-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2024-11-22T17:10:10.502934-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2024-11-22T17:10:15.092009-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/aabdelre-hamilton-college/English_to_French_Translation/ckgg7019/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2024-11-22T17:10:18.596394-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2024-11-22T17:11:25.577294-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2024-11-22T17:16:17.747814-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/aabdelre-hamilton-college/English_to_French_Translation/ckgg7019/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2024-11-22T17:16:53.066819-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2024-11-22T17:23:42.135287-05:00","level":"INFO","msg":"stream: closing","id":"ckgg7019"}
+{"time":"2024-11-22T17:23:42.135592-05:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-22T17:23:42.137714-05:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-22T17:23:42.570824-05:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-22T17:23:42.966848-05:00","level":"INFO","msg":"handler: closed","stream_id":"ckgg7019"}
+{"time":"2024-11-22T17:23:42.966877-05:00","level":"INFO","msg":"writer: Close: closed","stream_id":"ckgg7019"}
+{"time":"2024-11-22T17:23:42.966894-05:00","level":"INFO","msg":"sender: closed","stream_id":"ckgg7019"}
+{"time":"2024-11-22T17:23:42.96722-05:00","level":"INFO","msg":"stream: closed","id":"ckgg7019"}

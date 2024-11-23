@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 from pytorch_lightning.loggers.wandb import WandbLogger
 from nltk.translate.bleu_score import sentence_bleu
-from prepare_data import create_dataloaders, load_data, train_bpe_tokenizer, encode_sentences, split_dataset
+from old_prepare_data import create_dataloaders, load_data, train_bpe_tokenizer, encode_sentences, split_dataset
 
 class TransformerModel(pl.LightningModule):
     def __init__(self, 

@@ -1,0 +1,67 @@
+Go. Va!
+Hi. Salut!
+Run!    Cours!
+Run!	Courez !
+Who?	Qui ?
+Wow!	Ça alors !
+Fire!	Au feu!
+Help!	À l'aide !
+Jump.	Saute.
+Stop!	Ça suffit !
+Stop!	Stop !
+Stop!	Arrête-toi!
+Wait!	Attends!
+Wait!	Attendez!
+Go on.	Poursuis.
+Go on.	Continuez.
+Go on.	Poursuivez.
+Hello!	Bonjour!
+Hello!	Salut!
+I see.	Je comprends.
+I try.	J'essaye.
+I won!  J'ai gagné!
+I won!	Je l'ai emporté!
+I won.  J’ai gagné.
+Oh no!  Oh non!
+Attack! Attaque!
+Attack!	Attaquez!
+Cheers!	Santé!
+Cheers!	À votre santé!
+Cheers!	Merci!
+Cheers!	Tchin-tchin!
+Get up.	Lève-toi.
+Go now.	Va, maintenant.
+Go now.	Allez-y maintenant.
+Go now.	Vas-y maintenant.
+Got it!	J'ai pigé!
+Got it!	Compris!
+Got it?	Pigé ?
+Got it?	Compris ?
+Got it?	T'as capté ?
+Hop in.	Monte.
+Hop in.	Montez.
+Hug me.	Serre-moi dans tes bras!
+Hug me.	Serrez-moi dans vos bras!
+I fell.	Je suis tombée.
+I fell.	Je suis tombé.
+I know.	Je sais.
+I left.	Je suis parti.
+I left.	Je suis partie.
+I lost.	J'ai perdu.
+I paid.	J’ai payé.
+I'm 19.	J'ai 19 ans.
+I'm OK.	Je vais bien.
+I'm OK.	Ça va.
+Listen.	Écoutez!
+No way!	C'est pas possible !
+No way!	Impossible !
+No way!	En aucun cas.
+No way!	Sans façons !
+No way!	C'est hors de question!
+No way!	Il n'en est pas question!
+No way!	C'est exclu!
+No way!	En aucune manière!
+No way!	Hors de question!
+Really?	Vraiment ?
+Really?	Vrai ?
+Really?	Ah bon ?
